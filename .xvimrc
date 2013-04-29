@@ -1,0 +1,2 @@
+nmap <c-n> :xccmd jumpToNextCounterpart<CR>
+nmap <c-b><c-n> :xccmd jumpToNextCounterpart<CR>
