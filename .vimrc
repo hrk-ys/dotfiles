@@ -55,10 +55,10 @@ endif
 map ,ptv <Esc>:'<,'>! perltidy<CR>
 map ,pt <Esc>:%! perltidy<CR>
 map ,tl <Esc>:Tlist<CR>
-map ,pe <Esc>:! perl -Ipm %<CR>
-map ,pc <Esc>:! perl -Ipm -c %<CR>
-map ,pd <Esc>:! perl -d -Ipm %<CR>
-map ,pp <Esc>:! prove -lvc -Ipm  %<CR>
+map ,pe <Esc>:! perl -Ilib %<CR>
+map ,pc <Esc>:! perl -Ilib -c %<CR>
+map ,pd <Esc>:! perl -d -Ilib %<CR>
+map ,pp <Esc>:! prove -lvc -Ilib -It/lib  %<CR>
 
 syntax on
 au BufNewFile,BufRead *.mt setf tt2html
