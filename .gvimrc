@@ -1,3 +1,2 @@
-set background=dark
-colorscheme ChocolatePapaya
+colorscheme desert
 set imdisable
