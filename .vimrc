@@ -8,7 +8,9 @@ filetype off
 
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle/'))
+  call neobundle#begin(expand('~/.vim/bundle/'))
+  NeoBundleFetch 'Shougo/neobundle.vim'
+  call neobundle#end()
 endif
 " originalrepos on github
 NeoBundle 'Shougo/neobundle.vim'
@@ -44,6 +46,13 @@ NeoBundle "vim-perl/vim-perl"
 " オムニ補完
 NeoBundle "c9s/perlomni.vim"
 ""NeoBundle 'https://bitbucket.org/kovisoft/slimv'
+
+
+" coffee
+NeoBundle 'kchmck/vim-coffee-script'
+au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
+autocmd FileType coffee    setlocal sw=2 sts=2 ts=2 et
+
 
 filetype plugin indent on     " required!
 filetype indent on
@@ -216,6 +225,7 @@ augroup END
 " furuta add
 filetype on
 "autocmd FileType html :set  encoding=sjis
+autocmd FileType html    setlocal sw=2 sts=2 ts=2 et
 "autocmd FileType perl :set  encoding=euc-jp
 "utocmd FileType t    :set  encoding=euc-jp
 "utocmd FileType sql  :set  encoding=sjis
