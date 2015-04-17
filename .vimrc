@@ -47,11 +47,8 @@ NeoBundle "vim-perl/vim-perl"
 NeoBundle "c9s/perlomni.vim"
 ""NeoBundle 'https://bitbucket.org/kovisoft/slimv'
 
-
-" coffee
+" Coffee Script
 NeoBundle 'kchmck/vim-coffee-script'
-au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
-autocmd FileType coffee    setlocal sw=2 sts=2 ts=2 et
 
 
 filetype plugin indent on     " required!
@@ -156,6 +153,8 @@ nnoremap <silent> ,gh :<C-u>GitGutterLineHighlightsToggle<CR>
 
 
 set tabstop=4
+set expandtab
+set shiftwidth=4
 set nocompatible	" Use Vim defaults (much better!)
 set bs=2		" allow backspacing over everything in insert mode
 "set ai			" always set autoindenting on
@@ -209,9 +208,9 @@ map ,ptv <Esc>:'<,'>! perltidy<CR>
 map ,pt <Esc>:%! perltidy<CR>
 map ,tl <Esc>:Tlist<CR>
 map ,pe <Esc>:! perl -Ilib %<CR>
-map ,pc <Esc>:! perl -Ilib -c %<CR>
+map ,pc <Esc>:! perl -Ilib -It/lib -c %<CR>
 map ,pd <Esc>:! perl -d -Ilib %<CR>
-map ,pp <Esc>:! prove -lvc -Ilib -It/lib  %<CR>
+map ,pp <Esc>:! prove -lvc -Ilib -It/lib %<CR>
 
 syntax on
 augroup filetypedetect
@@ -220,16 +219,21 @@ augroup filetypedetect
 	au BufNewFile,BufRead *.tt      setf tt2html
 	au BufNewFile,BufRead *.tt2     setf tt2html
 	au BufNewFile,BufRead cpanfile  setf perl
+	au BufNewFile,BufRead *.coffee  setf coffee
 augroup END
 
 " furuta add
 filetype on
 "autocmd FileType html :set  encoding=sjis
-autocmd FileType html    setlocal sw=2 sts=2 ts=2 et
 "autocmd FileType perl :set  encoding=euc-jp
 "utocmd FileType t    :set  encoding=euc-jp
 "utocmd FileType sql  :set  encoding=sjis
 "utocmd FileType sql  :set  termencoding=euc-jp
+
+autocmd! FileType tt2html      setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+autocmd! FileType html         setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+autocmd! FileType javascript   setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+autocmd! FileType coffee       setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 
 syntax enable
 set number
@@ -240,5 +244,12 @@ set showcmd
 
 autocmd FileType * set formatoptions-=ro
 
+" cursor highlight
+highlight CursorColumn ctermbg=Black
+augroup cch
+    autocmd! cch
+    autocmd WinLeave * set nocursorcolumn nocursorline
+    autocmd WinEnter,BufRead * set cursorcolumn cursorline
+augroup END
 
 map!  
