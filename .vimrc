@@ -50,6 +50,7 @@ NeoBundle "c9s/perlomni.vim"
 " Coffee Script
 NeoBundle 'kchmck/vim-coffee-script'
 
+NeoBundle 'kakkyz81/evervim'
 
 filetype plugin indent on     " required!
 filetype indent on
