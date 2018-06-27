@@ -6,12 +6,9 @@ set enc=utf8
 filetype off
 
 
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#begin(expand('~/.vim/bundle/'))
-  NeoBundleFetch 'Shougo/neobundle.vim'
-  call neobundle#end()
-endif
+set runtimepath+=~/.vim/bundle/neobundle.vim
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
 " originalrepos on github
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc'
@@ -51,6 +48,8 @@ NeoBundle "c9s/perlomni.vim"
 NeoBundle 'kchmck/vim-coffee-script'
 
 NeoBundle 'kakkyz81/evervim'
+
+call neobundle#end()
 
 filetype plugin indent on     " required!
 filetype indent on
